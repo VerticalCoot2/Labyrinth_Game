@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    [Header("Collectable assets")]
     [SerializeField] private int collectibles = 0;
     [SerializeField] private GameObject colHolder;
     int maxCol;
 
+    [Header("\nWin assets")]
     [SerializeField] private GameObject winnerRoomDoor;
+    [SerializeField] private GameObject winnerText;
+
     void Start()
     {
         maxCol = colHolder.transform.childCount;
         winnerRoomDoor.SetActive(true);
+        winnerText.SetActive(false);
     }
     void Update()
     {
@@ -30,6 +35,10 @@ public class PlayerScript : MonoBehaviour
                 collectibles++;
                 Destroy(col.gameObject);
                 break;
+            case "Finish":
+                winnerText.SetActive(true);
+                break;
+
         }
     }
 }
