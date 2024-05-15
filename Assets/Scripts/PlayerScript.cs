@@ -14,8 +14,6 @@ public class PlayerScript : MonoBehaviour
         maxCol = colHolder.transform.childCount;
         winnerRoomDoor.SetActive(true);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(collectibles == maxCol)
